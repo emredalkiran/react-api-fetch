@@ -2,7 +2,7 @@ import Modal from './modal'
 import { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteContent, selectModalData, setModalType, contacts, selectPageNumber, selectError } from '../features/fetch-data/fetch-api-slice'
-import { Route, useHistory, useParams } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 
 
 function Content() {
@@ -15,7 +15,7 @@ function Content() {
   const [isEven, setEven] = useState(false)
   const error = useSelector(selectError)
   const history = useHistory()
-  let { modal } = useParams()
+
   const handleButtonClick = (e) => {
     setOpen(true)
     if(e.target.getAttribute('data-source') === 'allContacts') {
