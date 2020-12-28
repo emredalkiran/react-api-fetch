@@ -2,54 +2,70 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from '../../config/config'
 
 export const contacts = createAsyncThunk('fetchAPI/contacts', async (parameters) => {
-
-  try {
       const response = await axios.get('/api/contacts.json', {
         params: parameters
       })
       return response.data
-  } catch (err){
-      return {
-        success:false,
-        error: "Oops, something went wrong!"
-      }
-    }
-})
-
+    })
+    
 const fetchAPI = createSlice({
   name: 'fetchAPI',
   initialState: {
+    type: '',
+    page: 1,
     loading: false,
     contactIds: [],
-    contactContent: {}
+    contactContent: {},
+    error: null
   },
   reducers: {
-    addContent(sliceState, action) {
-      sliceState.content.push(action.payload)
-    },
     deleteContent(sliceState, action) {
-      sliceState.contentIds = []
+      sliceState.contactIds = []
       sliceState.contactContent = {}
+      sliceState.page = 1
+      sliceState.type = ''
+      sliceState.error = null
+    },
+    incrementPage(sliceState) {
+      sliceState.page += 1 
+    },
+    setModalType(sliceState, action) {
+      sliceState.type = action.payload.modalType
+      sliceState.contactIds = []
+      sliceState.contactContent = {}
+      sliceState.page = 1
     }
   },
   extraReducers: {
     [contacts.pending]: (sliceState, action) => {
       sliceState.loading = true
+      sliceState.error = null
     },
     [contacts.fulfilled]: (sliceState, action) => {
       sliceState.loading = false
-      sliceState.contactIds = [...sliceState.contactIds, ...action.payload.contacts_ids]
+      sliceState.contactIds = [...sliceState.contactIds, ...Object.keys(action.payload.contacts)]
       sliceState.contactContent = { ...sliceState.contactContent, ...action.payload.contacts }
+
     },
     [contacts.rejected]: (sliceState, action)=> {
-      console.log(action)
+      sliceState.error = action.payload
     }
-
   }
 })
-
+export const selectPageNumber = state => state.fetchAPI.page
 export const selectLoadingStatus = state => state.fetchAPI.loading
-export const selectContactIds = state => state.fetchAPI.contactIds
-export const selectContactContent = state => state.fetchAPI.contactContent
+export const selectModalData = state =>  { 
+  return { 
+    contactIds: state.fetchAPI.contactIds,
+    contactContent: state.fetchAPI.contactContent,
+    modalType: state.fetchAPI.type
+  }
+}
+export const selectError = state => state.fetchAPI.error
+export const {
+ deleteContent,
+ incrementPage,
+ setModalType
+} = fetchAPI.actions
 
 export default fetchAPI.reducer
