@@ -9,7 +9,7 @@ function Content() {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
   const pageNumber = useSelector(selectPageNumber)
-  const { modalType } = useSelector(selectModalData)
+  const { modalType, contactIds } = useSelector(selectModalData)
   const [isContactDetailModal, setContactDetailModal] = useState(false)
   const [contactData, setContactData] = useState({})
   const [isEven, setEven] = useState(false)
@@ -65,8 +65,8 @@ function Content() {
       setOpen(true)
       dispatch(deleteContent())
       dispatch(setModalType({ modalType: 'All Contacts' }))
-     
     }
+
     else if (url === 'us-contacts') {
       setOpen(true)
       dispatch(deleteContent())
@@ -74,7 +74,7 @@ function Content() {
     }
   }
   useEffect(() => {
-    if (modalType!== '') {
+    if (modalType !== '' && contactIds.length === 0) {
     let query = {
       page: pageNumber,
       companyId: 171,
@@ -84,18 +84,15 @@ function Content() {
     }
     getContacts(query)
   }
-  }, [getContacts, pageNumber, modalType])
+  }, [getContacts, pageNumber, modalType, contactIds])
  
   return (
     <div className={ `container-fluid full-height d-flex justify-content-center align-items-center ${ open ? 'modal-background' : '' }` }>
       <button data-source="allContacts" type="button" className="btn btn-primary mr-1" onClick={ handleButtonClick }>Button A</button>
       <button data-source="USContacts" type="button" className="btn btn-secondary mr-1" onClick={ handleButtonClick }>Button B</button>
-      <Route path='/all-contacts'>
+      <Route path='/:modal'>
         <Modal isOpen={ open } directURL={ handleDirectURL } change={  handleButtonClick } contact={ contactData } error={ error } isEven={ isEven } handleCheckboxChange={ handleCheckboxChange } isContactDetailModal={ isContactDetailModal } setContactDetail={ setContactDetail }/>
       </Route>  
-      <Route path='/us-contacts'>
-        <Modal isOpen={ open } directURL={ handleDirectURL } change={  handleButtonClick } contact={ contactData } error={ error } isEven={ isEven } handleCheckboxChange={ handleCheckboxChange } isContactDetailModal={ isContactDetailModal } setContactDetail={ setContactDetail }/>
-      </Route>
     </div>
   )
 }
