@@ -2,7 +2,9 @@
 
 **Note: .env file is shared in public repository because of the requirements of this project but normally, never share your .env file containing information like credentials in public repositories!**
 
-This is a project touching many building blocks of React development i.e. Redux, React-Router, API Consuming, state management and so on. I've bootstrapped the project with `create-react-app`.
+This is a project built to address requirements of a predefined project, which is touching many building blocks of React development i.e. Redux, React-Router, API Consuming, state management and so on. I've bootstrapped the project with `create-react-app`.
+
+If you can't receive any data from the API, the reason might be because Bearer token is no longer valid.
 
 ## Requirements of the project
 
@@ -13,8 +15,9 @@ This is a project touching many building blocks of React development i.e. Redux,
 5. API endpoint supports pagination as a parameter. Modal should support infinite scrolling. When scrolled to the bottom of the modal, new API request should be made to the endpoint for the next page and results should be displayed under previous results.
 6. Clicking in Button B should open the same modal as Button A. This time, same endpoint should be fetched with different parameters. All of the other requirements for Button A are also valid for Button B.
 7. Clicking on the results in the modal should open a new modal, giving extra detail about the item clicked on the list, however, displaying this modal should not change URL of the page. This modal should only contain a Close button.
-8. For displaying ids with even numbers, a check box should be present and while checked, should only display results having even ids.
-9. Bootstrap CSS should be used.
+8. Users should be able to filter results by typing into an input field. When they type, filtering should be completed with a small delay. IF they hit enter after typing, filtering should be completed immediately.
+9. For displaying ids with even numbers, a check box should be present and while checked, should only display results having even ids.
+10. Bootstrap CSS should be used.
 
 ## Getting Started with Create React App
 
