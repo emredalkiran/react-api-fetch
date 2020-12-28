@@ -1,4 +1,22 @@
-# Getting Started with Create React App
+# React Fetch API Project
+
+**Note: .env file is shared in public repository because of the requirements of this project but normally, never share your .env file containing information like credentials in public repositories!**
+
+This is a project touching many building blocks of React development i.e. Redux, React-Router, API Consuming, state management and so on. I've bootstrapped the project with `create-react-app`.
+
+## Requirements of the project
+
+1. Place two buttons (Button A and Button B, respectively with certain styling) into the screen vertically and horizontally centered.
+2. Clicking on Button A should open a modal. Opening modal should contain three buttons. All Contacts (should do the same thing with Button A), US Contacts (should do the same thing with Button B) and Close button, which closes the modal.
+3. When Button A is clicked, an API request with an Auth Bearer token should be made to a specific end point with certain parameters. Results should be displayed within this modal.
+4. Clicking on Button A should change URL of the page.
+5. API endpoint supports pagination as a parameter. Modal should support infinite scrolling. When scrolled to the bottom of the modal, new API request should be made to the endpoint for the next page and results should be displayed under previous results.
+6. Clicking in Button B should open the same modal as Button A. This time, same endpoint should be fetched with different parameters. All of the other requirements for Button A are also valid for Button B.
+7. Clicking on the results in the modal should open a new modal, giving extra detail about the item clicked on the list, however, displaying this modal should not change URL of the page. This modal should only contain a Close button.
+8. For displaying ids with even numbers, a check box should be present and while checked, should only display results having even ids.
+9. Bootstrap CSS should be used.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
