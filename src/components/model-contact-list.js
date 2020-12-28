@@ -70,7 +70,7 @@ function ModalContent(props) {
           <div className="col">First Name</div>
           <div className="col">Last Name</div>
         </div>
-          { filteredContactIds.map(contactId => {
+          { Object.keys(contactContent).length > 0 && filteredContactIds.map(contactId => {
                 return(
                   <ContentRow key={ contactId } ref={ contactId === contactIds[contactIds.length - 1] ? setElement : null } isEven={ props.isEven } onClick ={ () => props.setContactDetail(contactContent[contactId]) } contact={ contactContent[contactId] } />
                 ) 
