@@ -74,7 +74,7 @@ function Content() {
     }
   }
   useEffect(() => {
-    if (modalType !== '' && contactIds.length === 0) {
+    if (modalType !== '') {
     let query = {
       page: pageNumber,
       companyId: 171,
@@ -84,7 +84,7 @@ function Content() {
     }
     getContacts(query)
   }
-  }, [getContacts, pageNumber, modalType, contactIds])
+  }, [getContacts, pageNumber, modalType])
  
   return (
     <div className={ `container-fluid full-height d-flex justify-content-center align-items-center ${ open ? 'modal-background' : '' }` }>
