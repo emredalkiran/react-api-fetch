@@ -7166,6 +7166,11 @@ a.text-dark:hover, a.text-dark:focus {
 .modal-background {
   background-color: rgba(0, 0, 0, 0.6); }
 
+.modal-header {
+  display: block; }
+  .modal-header .form-control {
+    width: 50%; }
+
 .spinner {
   margin: 30px auto 0;
   width: 70px;
@@ -7179,6 +7184,9 @@ a.text-dark:hover, a.text-dark:focus {
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+
+.spinner-wrapper {
+  height: 54px; }
 
 .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
@@ -7212,7 +7220,7 @@ a.text-dark:hover, a.text-dark:focus {
     margin: 1.75rem auto;
     overflow-y: initial !important; } }
 
-.modal-conent {
+.modal-content {
   overflow-y: scroll; }
 
 .modal-body {
@@ -7222,26 +7230,29 @@ a.text-dark:hover, a.text-dark:focus {
 .cursor-pointer {
   cursor: pointer; }
 
-.btn-primary {
+.btn-text, .btn-allcontact, .btn-allcontact:hover, .btn-allcontact:focus, .btn-allcontact:active, .btn-uscontact, .btn-uscontact:hover, .btn-uscontact:focus, .btn-uscontact:active, .btn-close:hover, .btn-close:focus, .btn-close:active {
+  color: white; }
+
+.btn-outline, .btn-allcontact:hover, .btn-allcontact:focus, .btn-allcontact:active, .btn-uscontact:hover, .btn-uscontact:focus, .btn-uscontact:active, .btn-close:hover, .btn-close:focus, .btn-close:active {
+  box-shadow: none; }
+
+.btn-allcontact {
   background-color: #46139f;
   border-color: #46139f; }
+  .btn-allcontact:hover, .btn-allcontact:focus, .btn-allcontact:active {
+    background-color: #2b0b61;
+    border-color: #2b0b61; }
 
-.btn-primary:hover {
-  background-color: #2b0b61;
-  border-color: #2b0b61; }
-
-.btn-secondary {
+.btn-uscontact {
   background-color: #ff7f50;
   border-color: #ff7f50; }
+  .btn-uscontact:hover, .btn-uscontact:focus, .btn-uscontact:active {
+    background-color: #9b4c2f;
+    border-color: #9b4c2f; }
 
-.btn-secondary:hover {
-  background-color: #9b4c2f;
-  border-color: #9b4c2f; }
-
-.btn-outline-primary {
+.btn-close {
   border-color: #46139f;
   color: #46139f; }
-
-.btn-outline-primary:hover {
-  border-color: #46139f;
-  background-color: #46139f; }
+  .btn-close:hover, .btn-close:focus, .btn-close:active {
+    border-color: #46139f;
+    background-color: #46139f; }

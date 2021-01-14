@@ -88,8 +88,8 @@ function Content() {
  
   return (
     <div className={ `container-fluid full-height d-flex justify-content-center align-items-center ${ open ? 'modal-background' : '' }` }>
-      <button data-source="allContacts" type="button" className="btn btn-primary mr-1" onClick={ handleButtonClick }>Button A</button>
-      <button data-source="USContacts" type="button" className="btn btn-secondary mr-1" onClick={ handleButtonClick }>Button B</button>
+      <button data-source="allContacts" type="button" className="btn btn-allcontact mr-1" onClick={ handleButtonClick }>Button A</button>
+      <button data-source="USContacts" type="button" className="btn btn-uscontact mr-1" onClick={ handleButtonClick }>Button B</button>
       <Route path='/:modal'>
         <Modal isOpen={ open } directURL={ handleDirectURL } change={  handleButtonClick } contact={ contactData } error={ error } isEven={ isEven } handleCheckboxChange={ handleCheckboxChange } isContactDetailModal={ isContactDetailModal } setContactDetail={ setContactDetail }/>
       </Route>  

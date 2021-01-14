@@ -57,31 +57,32 @@ function ModalContent(props) {
   return (
     <div>
       <div className="modal-header">
-        <h5 className="modal-title">{ modalType }</h5>
-      </div>
-       <div ref={ setRootElement } className="modal-body">
-       {!props.error &&
-       <>
-        <div> 
-          <input type="text" value={ nameInput } className="form-control" placeholder="First Name" onKeyPress={ handleKeyPress } onChange={ handleNameInput } />
+        <h5 className="modal-title border-bottom">{ modalType }</h5>
+        <div className="mt-1 mb-1 pb-1 pt-1"> 
+          <input type="text" value={ nameInput } className="form-control" placeholder="Filter by first name" onKeyPress={ handleKeyPress } onChange={ handleNameInput } />
         </div>
-        <div className="row font-weight-bold border-bottom pb-3 mb-1">
+        <div className="row font-weight-bold mb-1">
           <div className="col-2">Id</div>
           <div className="col">First Name</div>
           <div className="col">Last Name</div>
         </div>
+      </div>
+       <div ref={ setRootElement } className="modal-body">
+       {!props.error &&
+       <>
+        <div className="contacts">
           { Object.keys(contactContent).length > 0 && filteredContactIds.map(contactId => {
                 return(
                   <ContentRow key={ contactId } ref={ contactId === contactIds[contactIds.length - 1] ? setElement : null } isEven={ props.isEven } onClick ={ () => props.setContactDetail(contactContent[contactId]) } contact={ contactContent[contactId] } />
                 ) 
             })
           } 
-        {isLoading && (
-        <div className="spinner">
+        </div>
+        <div className={ ` ${ isLoading ? 'spinner' : 'spinner-wrapper' }`}>
           <div className="bounce1"></div>
           <div className="bounce2"></div>
           <div className="bounce3"></div>
-        </div>)}
+        </div>
       </> }
       {props.error && 
       <>

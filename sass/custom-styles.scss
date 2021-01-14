@@ -11,6 +11,12 @@
 .modal-background {
   background-color: rgba(0, 0, 0, 0.6);
 }
+.modal-header {
+  display: block;
+  .form-control {
+    width: 50%;
+  }
+}
 
 .spinner {
   margin: 30px auto 0;
@@ -27,6 +33,10 @@
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner-wrapper {
+  height: 54px;
 }
 
 .spinner .bounce1 {
@@ -70,7 +80,7 @@
     overflow-y: initial !important;
   }
 }
-.modal-conent {
+.modal-content {
   overflow-y: scroll;
 }
 
@@ -81,31 +91,51 @@
 .cursor-pointer {
   cursor: pointer;
 }
-.btn-primary {
+
+.btn-text {
+  color: white;
+}
+.btn-outline {
+  box-shadow: none;
+}
+.btn-allcontact {
+  @extend .btn-text;
+
   background-color: #46139f;
   border-color: #46139f;
+  &:hover,
+  &:focus,
+  &:active {
+    @extend .btn-text;
+    @extend .btn-outline;
+    background-color: #2b0b61;
+    border-color: #2b0b61;
+  }
 }
 
-.btn-primary:hover {
-  background-color: #2b0b61;
-  border-color: #2b0b61;
-}
-
-.btn-secondary {
+.btn-uscontact {
+  @extend .btn-text;
   background-color: #ff7f50;
   border-color: #ff7f50;
-}
-.btn-secondary:hover {
-  background-color: #9b4c2f;
-  border-color: #9b4c2f;
+  &:hover,
+  &:focus,
+  &:active {
+    @extend .btn-text;
+    @extend .btn-outline;
+    background-color: #9b4c2f;
+    border-color: #9b4c2f;
+  }
 }
 
-.btn-outline-primary {
+.btn-close {
   border-color: #46139f;
   color: #46139f;
-}
-
-.btn-outline-primary:hover {
-  border-color: #46139f;
-  background-color: #46139f;
+  &:hover,
+  &:focus,
+  &:active {
+    @extend .btn-text;
+    @extend .btn-outline;
+    border-color: #46139f;
+    background-color: #46139f;
+  }
 }

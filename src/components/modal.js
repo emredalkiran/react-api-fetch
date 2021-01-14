@@ -25,10 +25,10 @@ function Modal (props) {
                 <input className="form-check-input" type="checkbox" value={ props.isEven } onChange={ props.handleCheckboxChange } id="flexCheckDefault"/>
                 <label className="form-check-label">Only even</label>
               </div>
-              <button data-source="allContacts" type="button" className="btn btn-primary" onClick={ props.change }>All Contacts</button>
-              <button data-source="USContacts" type="button" className="btn btn-secondary" onClick={ props.change }>US Contacts</button> 
+              <button data-source="allContacts" type="button" className="btn btn-allcontact" onClick={ props.change }>All Contacts</button>
+              <button data-source="USContacts" type="button" className="btn btn-uscontact" onClick={ props.change }>US Contacts</button> 
             </> : null }
-            <button type="button" className="btn btn-outline-primary" onClick= { props.change }>Close</button>
+            <button type="button" className="btn btn-close" onClick= { props.change }>Close</button>
           </div>  
         </div>
       </div>
